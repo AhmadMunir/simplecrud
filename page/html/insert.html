@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
+    <title>Dr. Dheka Haryoko Putra</title>
+    <!-- Custom CSS -->
+    <link href="css/style.min.css" rel="stylesheet">
+    <link href="css/select2.min.css" rel="stylesheet">
+    <link href="assets/libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body>
+    <style>
+        table {
+            table-layout:fixed;
+        }
+
+        table td {
+            overflow:hidden;
+        }
+
+    </style>
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper" data-navbarbg="skin6" data-theme="light" data-layout="vertical" data-sidebartype="full" data-boxed-layout="full">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <header class="topbar" data-navbarbg="skin6">
+            <nav class="navbar top-navbar navbar-expand-md navbar-light">
+                <div class="navbar-header" data-logobg="skin5">
+                    <!-- This is for the sidebar toggle which is visible on mobile only -->
+                    <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)">
+                        <i class="ti-menu ti-close"></i>
+                    </a>
+                    <!-- ============================================================== -->
+                    <!-- Logo -->
+                    <!-- ============================================================== -->
+                    <div class="navbar-brand">
+                        <a href="index.html" class="logo">
+                            <!-- Logo icon -->
+                            <b class="logo-icon">
+                                <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                                <!-- Dark Logo icon -->
+                                <img src="assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
+                                <!-- Light Logo icon -->
+                                <img src="assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
+                            </b>
+                            <!--End Logo icon -->
+                            <!-- Logo text -->
+                            <span class="logo-text">
+                                <!-- dark Logo text -->
+                                <img src="assets/images/logo-text.png" alt="homepage" class="dark-logo" />
+                                <!-- Light Logo text -->
+                                <img src="assets/images/logo-light-text.png" class="light-logo" alt="homepage" />
+                            </span>
+                        </a>
+                    </div>
+                    <!-- ============================================================== -->
+                    <!-- End Logo -->
+                    <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- Toggle which is visible on mobile only -->
+                    <!-- ============================================================== -->
+                    <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="ti-more"></i>
+                    </a>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin6">
+                    <!-- ============================================================== -->
+                    <!-- toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav float-left mr-auto">
+                        <!-- ============================================================== -->
+                        <!-- Search -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item search-box">
+                            <a class="nav-link waves-effect waves-dark" href="javascript:void(0)">
+                                <div class="d-flex align-items-center">
+                                    <i class="mdi mdi-magnify font-20 mr-1"></i>
+                                    <div class="ml-1 d-none d-sm-block">
+                                        <span>Search</span>
+                                    </div>
+                                </div>
+                            </a>
+                            <form class="app-search position-absolute">
+                                <input type="text" class="form-control" placeholder="Search &amp; enter">
+                                <a class="srh-btn">
+                                    <i class="ti-close"></i>
+                                </a>
+                            </form>
+                        </li>
+                    </ul>
+                    <!-- ============================================================== -->
+                    <!-- Right side toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav float-right">
+                        <!-- ============================================================== -->
+                        <!-- User profile and search -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
+                            <div class="dropdown-menu dropdown-menu-right user-dd animated">
+                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i> My Profile</a>
+                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet m-r-5 m-l-5"></i> My Balance</a>
+                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email m-r-5 m-l-5"></i> Inbox</a>
+                            </div>
+                        </li>
+                        <!-- ============================================================== -->
+                        <!-- User profile and search -->
+                        <!-- ============================================================== -->
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <aside class="left-sidebar" data-sidebarbg="skin5">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/insert" aria-expanded="false">
+                                <i class="mdi mdi-arrange-bring-forward"></i>
+                                <span class="hide-menu">Insert Data</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/daftarpasien" aria-expanded="false">
+                                <i class="mdi mdi-border-none"></i>
+                                <span class="hide-menu">Daftar Pasien</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </aside>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="page-breadcrumb">
+                <div class="row">
+                    <div class="col-5 align-self-center">
+                        <h4 class="page-title">Insert Data</h4>
+                    </div>
+                    <div class="col-7 align-self-center">
+                        <div class="d-flex align-items-center justify-content-end">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item">
+                                        <a href="#">Home</a>
+                                    </li>
+                                    <li class="breadcrumb-item active" aria-current="page">Insert Data</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card card-body">
+                            <h4 class="card-title">Data Pasien</h4>
+                            <h5 class="card-subtitle"> Pilih <span>pasien baru </span>untuk menambahkan pasien baru </h5>
+                            <form class="form-horizontal m-t-30" >
+                                <div class="col-md-12 seg-form-1 row">
+                                    <div class="form-group col-md-3">
+                                        <label>Pilih Pasien</label>
+                                        <!-- <input type="text" class="form-control"> -->
+                                        <select class="form-control" id="listPasien" name="idpasien">
+                                            <!-- <option value="1">1</option>
+                                            <option value="2">2</option> -->
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label>Nama Pasien</label>
+                                        <input type="text" id="namaPasien" class="form-control" onkeyup="isChange()">
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label>Tanggal Lahir</label>
+                                        <input type="date" onchange="getAge()" id="dob" class="form-control">
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label>Umur</label>
+                                        <input type="number" id="umur" class="form-control" disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 seg-form-1 row">
+                                    <div class="form-group col-md-6">
+                                        <label>Alamat</label>
+                                        <textarea style="width: 100%;" id="alamat" onkeyup="isChange()"></textarea>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Alergi</label>
+                                        <textarea style="width: 100%;" id="alergi" onkeyup="isChange()"></textarea>
+                                    </div>
+                                </div>
+                               
+                                <!-- <div class="form-group">
+                                    <label for="example-email">Email <span class="help"> e.g. "example@gmail.com"</span></label>
+                                    <input type="email" id="example-email" name="example-email" class="form-control" placeholder="Email">
+                                </div>
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input type="password" class="form-control" value="password">
+                                </div>
+                                <div class="form-group">
+                                    <label>Placeholder</label>
+                                    <input type="text" class="form-control" placeholder="placeholder">
+                                </div>
+                                <div class="form-group">
+                                    <label>Text area</label>
+                                    <textarea class="form-control" rows="5"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Read only input</label>
+                                    <input class="form-control" type="text" placeholder="Readonly input here…" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <fieldset disabled>
+                                        <label for="disabledTextInput">Disabled input</label>
+                                        <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+                                    </fieldset>
+                                </div>
+                                <div class="form-group row p-t-20">
+                                    <div class="col-sm-4">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                            <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
+                                        </div>
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="customCheck2">
+                                            <label class="custom-control-label" for="customCheck2">Check this custom checkbox</label>
+                                        </div>
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="customCheck3">
+                                            <label class="custom-control-label" for="customCheck3">Check this custom checkbox</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio1">Toggle this custom radio</label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio2">Toggle this custom radio</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Input Select</label>
+                                    <select class="custom-select col-12" id="inlineFormCustomSelect">
+                                        <option selected>Choose...</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Default file upload</label>
+                                    <input type="file" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Custom File upload</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Upload</span>
+                                        </div>
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="inputGroupFile01">
+                                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Helping text</label>
+                                    <input type="text" class="form-control" placeholder="Helping text">
+                                    <span class="help-block"><small>A block of help text that breaks onto a new line and may extend beyond one line.</small></span> </div> -->
+                            </form>
+                            <div class="col-md-12">
+                                <button class="btn btn-success col-md-12" id="add-diagnosa" data-toggle="modal" data-target="#myModal">Tambah Hasil Diagnosa</button>
+                                <button class="btn btn-primary col-md-12" id="add-pasien" onclick="tambahPasien()">Tambah Pasien</button>
+                                <button class="btn btn-warning col-md-12" id="edit-pasien" onclick="edit('pasien')">Simpan Perubahan Data Pasien</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Daftar Riwayat Pemeriksaan Pasien</h4>
+                                <input class="col-md-12" type="text" id="cariDiagnosa" onkeyup="searchDiagnosa()" placeholder="Cari riwayat pemeriksaan pasien">
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-hover" id="myTable">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">No</th>
+                                            <th scope="col">Tanggal</th>
+                                            <th scope="col">Amnesis & Pemeriksaan</th>
+                                            <th scope="col">Diagnosa</th>
+                                            <th scope="col">Terapi</th>
+                                            <th scope="col">Detail</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="listDiagnosa">
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Right sidebar -->
+                <!-- ============================================================== -->
+                <!-- .right-sidebar -->
+                <!-- ============================================================== -->
+                <!-- End Right sidebar -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <footer class="footer text-center">
+                All Rights Reserved by Nice admin. Designed and Developed by
+                <a href="https://wrappixel.com">WrapPixel</a>.
+            </footer>
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+            <div class="modal-header">
+                <div class="col-md-12 row">
+                    <div class="col-md-11">
+                        <h4 class="modal-title">Tambah Diagnosa</h4>
+                    </div>
+                    <div class="col-md-1">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+            <form class="" >
+                <div class="form-group col-md-12">
+                    <label>Amnesis Pemeriksaan</label>
+                    <textarea class="col-md-12" style="width: 100%;" id="inputAmnesis"></textarea>
+                </div>
+                <div class="form-group col-md-12">
+                    <label>Diagnosa</label>
+                    <textarea class="col-md-12" style="width: 100%;" id="inputDiagnosa"></textarea>
+                </div>
+                <div class="form-group col-md-12">
+                    <label>Terapi</label>
+                    <textarea class="col-md-12" style="width: 100%;" id="inputTerapi"></textarea>
+                </div>
+            </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" onclick="saveDiagnosa()">Simpan</button>
+            </div>
+            </div>
+
+        </div>
+    </div>
+    <div id="modalDetail" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+            <div class="modal-header">
+                <div class="col-md-12 row">
+                    <div class="col-md-11">
+                        <h4 class="modal-title">Tambah Diagnosa</h4>
+                    </div>
+                    <div class="col-md-1">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+            <form class="" >
+                <div class="form-group col-md-12">
+                    <label>Amnesis Pemeriksaan</label>
+                    <textarea class="col-md-12" style="width: 100%;" id="detailAmnesis"></textarea>
+                </div>
+                <div class="form-group col-md-12">
+                    <label>Diagnosa</label>
+                    <textarea class="col-md-12" style="width: 100%;" id="detailDiagnosa"></textarea>
+                </div>
+                <div class="form-group col-md-12">
+                    <label>Terapi</label>
+                    <textarea class="col-md-12" style="width: 100%;" id="detailTerapi"></textarea>
+                </div>
+            </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="assets/extra-libs/sparkline/sparkline.js"></script>
+    <!--Wave Effects -->
+    <script src="dist/js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="dist/js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="dist/js/custom.min.js"></script>
+
+    <script src="dist/js/select2.min.js"></script>
+    <script>
+        var pas = '';
+        var listPasien;
+        var listDiagnosa;
+        var pasienSelected;
+        var newPasien = true;
+        const d = new Date();
+        $(document).ready(function(){
+            $('#listPasien').select2();
+            setNull();
+            document.getElementById("add-diagnosa").style.display = "none";
+            document.getElementById("edit-pasien").style.display = "none";
+            getPasien();
+        })
+
+
+        $('#listPasien').on('select2:select', function(e){
+            console.log(e.params);
+            pas = e.params.data.id;
+            if(pas == 'x'){
+                setNull();
+                $('#listDiagnosa tr').remove();
+                document.getElementById("add-diagnosa").style.display = "none";
+                document.getElementById("edit-pasien").style.display = "none";
+                document.getElementById("add-pasien").style.display = "block";
+                newPasien = true;
+
+            }else{
+                newPasien = false;
+                document.getElementById("add-diagnosa").style.display = "block";
+                document.getElementById("add-pasien").style.display = "none";
+                document.getElementById("edit-pasien").style.display = "none";
+
+                document.getElementById("dob").value  = listPasien[pas].dob ?? '';
+                document.getElementById("namaPasien").value  = listPasien[pas].nama ?? '';
+                document.getElementById("alamat").value  = listPasien[pas].alamat ?? '';
+                document.getElementById("umur").value  = listPasien[pas].umur ??'';
+                var alergi = '';
+                if(listPasien[pas].alergi.length > 0){
+                    listPasien[pas].alergi.forEach(k => {
+                        alergi += k;
+                        alergi += ", ";
+                    });
+                }
+                document.getElementById("alergi").value  = alergi;
+                pasienSelected = listPasien[pas].id;
+                getListDiagnosa(listPasien[pas].id)
+            }
+        })
+
+        function isChange(){
+            if (!newPasien) {   
+                document.getElementById("add-diagnosa").style.display = "none";
+                document.getElementById("add-pasien").style.display = "none";
+                document.getElementById("edit-pasien").style.display = "block";
+            }
+        }
+
+        function edit(type){
+            if(type == 'pasien'){
+                // alert(pasienSelected)
+                if(document.getElementById("namaPasien").value != ''){
+                $('#listPasien').html('')
+                data = {
+                    "type": "pasien",
+                    "id": pasienSelected,
+                    "pasien": {
+                        "nama": document.getElementById("namaPasien").value,
+                        "dob": document.getElementById("dob").value,
+                        "umur": document.getElementById("umur").value,
+                        "alergi": [document.getElementById("alergi").value],
+                        "alamat": document.getElementById("alamat").value
+                    }
+                }
+
+                console.log(data)
+                $.ajax({
+                    url:'/editdata',
+                    type: "POST",
+                    dataType: 'json',
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(data),
+                    success:(response)=>{
+                        alert(response.message)
+                        getPasien()
+                        setNull()
+                    },
+                    error: (response)=>{
+                        alert(response.message)
+                    }
+                })
+            }else{
+                alert('Field nama tidak boleh kosong')
+            }
+
+            }
+
+        }
+
+        function getListDiagnosa(id){
+            data = {
+                "idPasien": id
+            }
+            $('#listDiagnosa tr').remove();
+            $.ajax({
+                url:'/listdiagnosa',
+                type: "POST",
+                dataType: 'json',
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(data),
+                success:(response)=>{
+                    console.log(response.data.diagnosa.length)
+                    // $("#listDiagnosa").find("tr:gt(0)").remove(); 
+
+                    var no = 1;
+                    if(response.data.diagnosa.length > 0){
+                        listDiagnosa = response.data.diagnosa
+                        for(var i = response.data.diagnosa.length; i > 0; i--) {
+                            console.log(i-1);
+                            var html = '<tr>';
+                            html += '<td>' + no++ +'</td>';
+                            html += '<td>' + response.data.diagnosa[i-1].tanggal +'</td>';
+                            html += '<td>' + response.data.diagnosa[i-1].amnesis +'</td>';
+                            html += '<td>' + response.data.diagnosa[i-1].diagnosa +'</td>';
+                            html += '<td>' + response.data.diagnosa[i-1].terapi +'</td>';
+                            html += '<td> <button class="btn btn-success" onclick="detailDiagnosa('+(i-1)+')">Detail</button></td>';
+                            html += '</tr>'
+                            $('#listDiagnosa').append(html);
+                        }
+                    }
+                }
+            })
+        }
+
+        function detailDiagnosa(id){
+            $('#modalDetail').modal('show')
+            document.getElementById("detailAmnesis").value = listDiagnosa[id].amnesis;
+            document.getElementById("detailDiagnosa").value = listDiagnosa[id].diagnosa;
+            document.getElementById("detailTerapi").value = listDiagnosa[id].terapi;
+        }
+
+        function getPasien(){
+            
+            $.ajax({
+                url:'/readpasien',
+                success:(response)=>{
+                    console.log(response.data.dataPasien)
+                    listPasien = response.data.dataPasien;
+                    var html = '<option value="x"> Pasien Baru </option>';
+                    for(var i = 0; i < response.data.dataPasien.length; i++) {
+                        html += '<option value='+ i +'>' + response.data.dataPasien[i].nama + '-'+ response.data.dataPasien[i].alamat +'</option>';
+                    }
+                    $('#listPasien').html(html);
+                }
+            })
+        }
+
+        function setNull(){
+            // $("#listDiagnosa").find("tr:gt(0)").remove();
+            document.getElementById("dob").value  = '';
+            document.getElementById("alamat").value  = '';
+            document.getElementById("namaPasien").value  = '';
+            document.getElementById("umur").value  = '';
+            document.getElementById("alergi").value  = '';
+        }
+
+        function tambahPasien(){
+            if(document.getElementById("namaPasien").value != ''){
+                $('#listPasien').html('')
+                data = {
+                    "pasien": {
+                        "nama": document.getElementById("namaPasien").value,
+                        "dob": document.getElementById("dob").value,
+                        "umur": document.getElementById("umur").value,
+                        "alergi": [document.getElementById("alergi").value],
+                        "alamat": document.getElementById("alamat").value
+                    }
+                }
+
+                console.log(data)
+                $.ajax({
+                    url:'/insertdata',
+                    type: "POST",
+                    dataType: 'json',
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(data),
+                    success:(response)=>{
+                        alert(response.message)
+                        getPasien()
+                        setNull()
+                    },
+                    error: (response)=>{
+                        alert(response.message)
+                    }
+                })
+            }else{
+                alert('Field nama tidak boleh kosong')
+            }
+
+        }
+
+        function saveDiagnosa(){
+            
+            data = {
+                "idPasien": pasienSelected,
+                "tanggal": d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate(),
+                "amnesis": document.getElementById("inputAmnesis").value,
+                "diagnosa": document.getElementById("inputDiagnosa").value,
+                "terapi": document.getElementById("inputTerapi").value
+            }
+
+            console.log(data)
+            $.ajax({
+                url:'/insertdiagnosa',
+                type: "POST",
+                dataType: 'json',
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(data),
+                success:(response)=>{
+                    $('#myModal').modal('hide')
+                    alert(response.message)
+                    getListDiagnosa(pasienSelected)
+                    document.getElementById("inputAmnesis").value = '';
+                    document.getElementById("inputDiagnosa").value = '';
+                    document.getElementById("inputTerapi").value = '';
+                },
+                error: (response)=>{
+                    alert(response.message)
+                }
+            })
+        }
+
+        function searchDiagnosa() {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("cariDiagnosa");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("listDiagnosa");
+        tr = table.getElementsByTagName("tr");
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[2];
+            if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+            }
+        }
+        }
+
+        function getAge() {
+            if (!newPasien) {
+                document.getElementById("add-diagnosa").style.display = "none";
+                document.getElementById("add-pasien").style.display = "none";
+                document.getElementById("edit-pasien").style.display = "block";
+            }
+            var userinput = document.getElementById("dob").value;
+            var dob = new Date(userinput);
+            if(userinput==null || userinput=='') {
+                document.getElementById("message").innerHTML = "**Choose a date please!";  
+                return false; 
+            } else {
+                var month_diff = Date.now() - dob.getTime();
+                var age_dt = new Date(month_diff); 
+                var year = age_dt.getUTCFullYear();
+                var age = Math.abs(year - 1970);
+                document.getElementById("umur").value  = age;
+            }
+        }
+    </script>
+</body>
+
+</html>

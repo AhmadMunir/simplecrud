@@ -1,0 +1,34 @@
+{
+  "dataPasien": [
+    {
+      "id": 1,
+      "nama": "James",
+      "dob": "2022-08-15",
+      "umur": "",
+      "alergi": [
+        "wwwwww"
+      ],
+      "alamat": "tes"
+    },
+    {
+      "nama": "Ade Setiawan",
+      "dob": "2021-08-03",
+      "umur": "1",
+      "alergi": [
+        "- "
+      ],
+      "alamat": "tes",
+      "id": 2
+    },
+    {
+      "nama": "tes",
+      "dob": "2022-08-15",
+      "umur": "",
+      "alergi": [
+        "tes"
+      ],
+      "alamat": "tes",
+      "id": 3
+    }
+  ]
+}
