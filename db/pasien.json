@@ -2,20 +2,20 @@
   "dataPasien": [
     {
       "id": 1,
-      "nama": "James",
-      "dob": "2022-08-15",
-      "umur": "",
+      "nama": "James Own",
+      "dob": "2014-09-15",
+      "umur": "7",
       "alergi": [
-        "wwwwww"
+        "Alergi"
       ],
-      "alamat": "tes"
+      "alamat": "Bondowoso"
     },
     {
       "nama": "Ade Setiawan",
       "dob": "2021-08-03",
       "umur": "1",
       "alergi": [
-        "- "
+        "Ridaksnn"
       ],
       "alamat": "tes",
       "id": 2
@@ -25,7 +25,7 @@
       "dob": "2022-08-15",
       "umur": "",
       "alergi": [
-        "tes"
+        "RIDAKs"
       ],
       "alamat": "tes",
       "id": 3

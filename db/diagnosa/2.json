@@ -1,3 +1,11 @@
 {
-  "diagnosa": []
+  "diagnosa": [
+    {
+      "id": 1,
+      "tanggal": "2022-08-30",
+      "amnesis": "coba tes",
+      "diagnosa": "coba",
+      "terapi": "coba lagi"
+    }
+  ]
 }

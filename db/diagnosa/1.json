@@ -6,6 +6,20 @@
       "amnesis": "TES",
       "diagnosa": "TES",
       "terapi": "TES"
+    },
+    {
+      "id": 2,
+      "tanggal": "2022-09-12",
+      "amnesis": "Tes",
+      "diagnosa": "Tes",
+      "terapi": "Tes"
+    },
+    {
+      "id": 3,
+      "tanggal": "2021-09-30",
+      "amnesis": "EDIT",
+      "diagnosa": "EDIT LAGI",
+      "terapi": "Edit lagi"
     }
   ]
 }

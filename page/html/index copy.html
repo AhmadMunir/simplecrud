@@ -218,8 +218,8 @@
                     <div class="col-md-4">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title m-b-5">Total Pasien</h5>
-                                <h3 class="font-light totalPasien"></h3>
+                                <h5 class="card-title m-b-5">Referral Earnings</h5>
+                                <h3 class="font-light">$769.08</h3>
                                 <div class="m-t-20 text-center">
                                     <div id="earnings"></div>
                                 </div>
@@ -538,29 +538,8 @@
     <script src="assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
     <script src="dist/js/pages/dashboards/dashboard1.js"></script>
     <script>
-        $(document).ready(function(){
-            $.ajax({
-                url:'/home',
-                success:(response)=>{
-                    console.log(response)
-                    totalPasien = response.data.jumlahPasien;
-                    $('.totalPasien').append(totalPasien);
-                    // $("#listPasien").find("tr:gt(0)").remove(); 
-                    // var no = 1;
-                    // for(var i = 0; i < response.data.dataPasien.length; i++) {
-                    //     console.log(i);
-                    //     var html = '<tr>';
-                    //     html += '<td>' + no++ +'</td>';
-                    //     html += '<td>' + response.data.dataPasien[i].nama +'</td>';
-                    //     html += '<td>' + response.data.dataPasien[i].alamat +'</td>';
-                    //     html += '<td>' + response.data.dataPasien[i].dob +'</td>';
-                    //     html += '<td>' + response.data.dataPasien[i].umur +'</td>';
-                    //     html += '</tr>'
-                    //     $('#listPasien').append(html);
-                    // }
-                }
-            })
-        })
+        var name = "<%= name %>";
+        console.log(name);
     </script>
 </body>
 

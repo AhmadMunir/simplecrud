@@ -29,6 +29,36 @@ router.get('/insert',function(req,res){
   res.sendFile(path.join(__dirname+'/page/html/insert.html'));
 });
 
+router.get('/dashboard',function(req,res){
+  res.sendFile(path.join(__dirname+'/page/html/index.html'));
+});
+
+router.get('/home', function(req, res){
+  var jumlahPasien = 0
+  try {
+    fs.readFile('./db/pasien.json', (err, data) => {
+        if (err) throw err;
+        let pasien = JSON.parse(data);
+        jumlahPasien = pasien.dataPasien.length
+
+        res.send({
+          status: 200,
+          message: "Success",
+          data:{
+              jumlahPasien: jumlahPasien,
+              pasien: pasien.dataPasien
+            }
+          })
+    });
+  } catch (error) {
+    console.log(error)
+    return res.status(500).send({
+      status: 500,
+      message: "Gagal"
+    })
+  }
+})
+
 router.get('/readpasien',(req, res)=>{
     var ret = ""
     fs.readFile('./db/pasien.json', (err, data) => {
@@ -160,6 +190,71 @@ router.post('/editdata', (req, res)=>{
             }
             
         });
+  }else if(dataUpdate.type == 'diagnosa'){
+    console.log(req.body)
+
+    var editDiagnosa = req.body
+
+    var initDiagnosa = {
+      diagnosa:[]
+    }
+
+    fs.readFile('./db/diagnosa/'+editDiagnosa.idPasien+'.json', (err, data)=>{
+      if(err){
+        console.log(err)
+        fs.writeFile('./db/diagnosa/'+editDiagnosa.idPasien+'.json', JSON.stringify(initDiagnosa, null, 2), (err)=>{
+          if(err) throw err
+          console.log("Diagnosa File Created")
+          }
+        )
+      }
+
+      try{
+        let diag = JSON.parse(data);
+        var diagnosaPasien = diag.diagnosa
+        var idDiagnosa
+        // console.log(diagnosaPasien)
+        if (diagnosaPasien.length == 0) {
+          idDiagnosa = 1
+        }else{
+          idDiagnosa = diagnosaPasien[diagnosaPasien.length - 1].id+1
+        }
+
+        
+
+        var diagnosa = {
+          id: diagnosaPasien[editDiagnosa.index].id,
+          tanggal: editDiagnosa.tanggal,
+          amnesis: editDiagnosa.amnesis,
+          diagnosa: editDiagnosa.diagnosa,
+          terapi: editDiagnosa.terapi,
+        }
+
+        diagnosaPasien[editDiagnosa.index] = diagnosa
+        // console.log(diagnosaPasien)
+
+        var diagnosaFinal = {
+          diagnosa: diagnosaPasien
+        }
+
+        fs.writeFile('./db/diagnosa/'+editDiagnosa.idPasien+'.json', JSON.stringify(diagnosaFinal, null, 2), (err)=>{
+          if(err) throw err;
+          console.log('Data written to file')
+        })
+
+        res.send({
+            status:200,
+            message: "Data Berhasil Diinput"
+        })
+
+      }catch(err){
+        console.log(err)
+        res.status(500).send({
+          status: 500,
+          message: "Gagal"
+        })
+      }
+    })
   }
 })
 
@@ -273,6 +368,10 @@ router.post('/insertdiagnosa',  (req, res)=>{
       })
     }
   })
+})
+
+router.post('/deletediagnosa', (req, res)=>{
+  console.log(req.body)
 })
 
 router.post('/deleteDiagnosa', (req, res)=>{

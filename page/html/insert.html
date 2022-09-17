@@ -157,6 +157,12 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/dashboard" aria-expanded="false">
+                                <i class="mdi mdi-border-none"></i>
+                                <span class="hide-menu">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/insert" aria-expanded="false">
                                 <i class="mdi mdi-arrange-bring-forward"></i>
                                 <span class="hide-menu">Insert Data</span>
@@ -415,6 +421,10 @@
             <div class="modal-body">
             <form class="" >
                 <div class="form-group col-md-12">
+                    <label>Tanggal Pemeriksaan</label>
+                    <input type="date" class="col-md-12" style="width: 100%;" id="inputTanggal">
+                </div>
+                <div class="form-group col-md-12">
                     <label>Amnesis Pemeriksaan</label>
                     <textarea class="col-md-12" style="width: 100%;" id="inputAmnesis"></textarea>
                 </div>
@@ -454,6 +464,11 @@
             </div>
             <div class="modal-body">
             <form class="" >
+                <input readonly type="hidden" class="col-md-12" style="width: 100%;" id="index">
+                <div class="form-group col-md-12">
+                    <label>Tanggal Pemeriksaan</label>
+                    <input type="date" class="col-md-12" style="width: 100%;" id="detailTanggal">
+                </div>
                 <div class="form-group col-md-12">
                     <label>Amnesis Pemeriksaan</label>
                     <textarea class="col-md-12" style="width: 100%;" id="detailAmnesis"></textarea>
@@ -471,6 +486,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success"  onclick="edit('diagnosa')" data-dismiss="modal">Save</button>
             </div>
             </div>
 
@@ -535,7 +551,6 @@
                 if(listPasien[pas].alergi.length > 0){
                     listPasien[pas].alergi.forEach(k => {
                         alergi += k;
-                        alergi += ", ";
                     });
                 }
                 document.getElementById("alergi").value  = alergi;
@@ -553,44 +568,80 @@
         }
 
         function edit(type){
-            if(type == 'pasien'){
+            if (confirm('Anda yakin akan menyimpan perubahan ini?')) {
+                if(type == 'pasien'){
                 // alert(pasienSelected)
-                if(document.getElementById("namaPasien").value != ''){
-                $('#listPasien').html('')
-                data = {
-                    "type": "pasien",
-                    "id": pasienSelected,
-                    "pasien": {
-                        "nama": document.getElementById("namaPasien").value,
-                        "dob": document.getElementById("dob").value,
-                        "umur": document.getElementById("umur").value,
-                        "alergi": [document.getElementById("alergi").value],
-                        "alamat": document.getElementById("alamat").value
+                    if(document.getElementById("namaPasien").value != ''){
+                        $('#listPasien').html('')
+                        data = {
+                            "type": "pasien",
+                            "id": pasienSelected,
+                            "pasien": {
+                                "nama": document.getElementById("namaPasien").value,
+                                "dob": document.getElementById("dob").value,
+                                "umur": document.getElementById("umur").value,
+                                "alergi": [document.getElementById("alergi").value],
+                                "alamat": document.getElementById("alamat").value
+                            }
+                        }
+
+                        console.log(data)
+                        $.ajax({
+                            url:'/editdata',
+                            type: "POST",
+                            dataType: 'json',
+                            contentType: "application/json; charset=utf-8",
+                            data: JSON.stringify(data),
+                            success:(response)=>{
+                                document.getElementById("add-diagnosa").style.display = "none";
+                                document.getElementById("add-pasien").style.display = "block";
+                                document.getElementById("edit-pasien").style.display = "none";
+                                alert(response.message)
+                                getPasien()
+                                setNull()
+                            },
+                            error: (response)=>{
+                                alert(response.message)
+                            }
+                        })
+                    }else{
+                        alert('Field nama tidak boleh kosong')
                     }
+                }else if(type == 'diagnosa'){
+
+                    if(document.getElementById("detailAmnesis").value != '' && document.getElementById("detailDiagnosa").value != '' && document.getElementById("detailTerapi").value != 'detailTerapi'){
+                        
+                        data = {
+                            "type": "diagnosa",
+                            "idPasien": pasienSelected,
+                            "index": document.getElementById("index").value,
+                            "tanggal": document.getElementById("detailTanggal").value,
+                            "amnesis": document.getElementById("detailAmnesis").value,
+                            "diagnosa": document.getElementById("detailDiagnosa").value,
+                            "terapi": document.getElementById("detailTerapi").value
+                        }
+
+                        console.log(data)
+                        $.ajax({
+                            url:'/editdata',
+                            type: "POST",
+                            dataType: 'json',
+                            contentType: "application/json; charset=utf-8",
+                            data: JSON.stringify(data),
+                            success:(response)=>{
+                                getListDiagnosa(pasienSelected)
+                                alert(response.message)
+                            },
+                            error: (response)=>{
+                                alert(response.message)
+                            }
+                        })
+                    }else{
+                        alert('Field tidak boleh kosong')
+                    }
+                    
                 }
-
-                console.log(data)
-                $.ajax({
-                    url:'/editdata',
-                    type: "POST",
-                    dataType: 'json',
-                    contentType: "application/json; charset=utf-8",
-                    data: JSON.stringify(data),
-                    success:(response)=>{
-                        alert(response.message)
-                        getPasien()
-                        setNull()
-                    },
-                    error: (response)=>{
-                        alert(response.message)
-                    }
-                })
-            }else{
-                alert('Field nama tidak boleh kosong')
             }
-
-            }
-
         }
 
         function getListDiagnosa(id){
@@ -630,6 +681,8 @@
 
         function detailDiagnosa(id){
             $('#modalDetail').modal('show')
+            document.getElementById("index").value = id;
+            document.getElementById("detailTanggal").value = listDiagnosa[id].tanggal;
             document.getElementById("detailAmnesis").value = listDiagnosa[id].amnesis;
             document.getElementById("detailDiagnosa").value = listDiagnosa[id].diagnosa;
             document.getElementById("detailTerapi").value = listDiagnosa[id].terapi;
@@ -699,7 +752,8 @@
             
             data = {
                 "idPasien": pasienSelected,
-                "tanggal": d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate(),
+                "tanggal": document.getElementById("inputTanggal").value,
+                // "tanggal": d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate(),
                 "amnesis": document.getElementById("inputAmnesis").value,
                 "diagnosa": document.getElementById("inputDiagnosa").value,
                 "terapi": document.getElementById("inputTerapi").value
